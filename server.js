@@ -22,8 +22,8 @@ app.set("view engine", "handlebars");
 var collections = ["articles"];
 
 mongoose.Promise = Promise;
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/articleScraper";
-mongoose.connect(MONGODB_URI, {
+// var MONGODB_URI = process.env.MONGODB_URI;
+mongoose.connect(`mongodb://Blockboard:36g2wNlEBhO2d2lA@cluster0-shard-00-00.t0cpc.mongodb.net:27017,cluster0-shard-00-01.t0cpc.mongodb.net:27017,cluster0-shard-00-02.t0cpc.mongodb.net:27017/<dbname>?ssl=true&replicaSet=atlas-w63cgs-shard-0&authSource=admin&retryWrites=true&w=majority`, {
   useMongoClient: true
 });
 
