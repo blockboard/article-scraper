@@ -8,6 +8,10 @@ router.get("/api/scrape", function(req, res) {
 
   // request for nyt articles
   request("https://medium.com/", function(error, response, html) {
+    console.log(error)
+    console.log(html)
+    console.log(response)
+    console.log(typeof html);
     // Load the html body from request into cheerio
     var $ = cheerio.load(html);
     $("div.u-flexColumnTop.u-flexWrap.u-overflowHidden.u-absolute0.u-xs-relative").each(function(i, element) {
@@ -73,7 +77,7 @@ router.get("/api/articles/saved", function(req, res) {
 });
 
 
-router.put("/api/articles/saved/:id", function(req, res) {
+router.put("/api/articls/saved/:id", function(req, res) {
   db.Article
     .findOneAndUpdate(
       { _id: req.params.id },
